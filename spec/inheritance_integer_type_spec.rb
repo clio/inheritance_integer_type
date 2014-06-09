@@ -9,6 +9,10 @@ describe InheritanceIntegerType do
   describe "The parent" do
     subject { base }
     it { is_expected.to be_persisted }
+    it "has no type" do
+      expect(subject.type).to be_nil
+    end
+    it { is_expected.to eql Base.first }
   end
 
   describe "The inherited classes" do
@@ -47,6 +51,29 @@ describe InheritanceIntegerType do
     subject { other }
     it "properly finds the classes through the association" do
       expect(other.bases).to match_array [base, left, deep]
+    end
+
+  end
+
+  describe "Old style inheritance" do
+
+    let(:old_style) { OldStyle.create }
+    let(:inherited_old_style) { InheritOldStyle.create }
+
+    context "on the base class" do
+      subject { old_style }
+      it "has no type" do
+        expect(subject.type).to be_nil
+      end
+      it { is_expected.to eql OldStyle.first }
+    end
+
+    context "on the inherited class" do
+      subject { inherited_old_style }
+      it "has the string type" do
+        expect(inherited_old_style.type).to eql "InheritOldStyle"
+      end
+      it { is_expected.to eql InheritOldStyle.first }
     end
 
   end
