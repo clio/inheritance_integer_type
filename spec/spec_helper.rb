@@ -1,5 +1,9 @@
 require 'support/active_record'
 require 'inheritance_integer_type'
+require 'support/base'
+require 'support/left_child'
+require 'support/right_child'
+require 'support/deep_child'
 
 RSpec.configure do |config|
 

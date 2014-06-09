@@ -1,0 +1,2 @@
+class RightChild < Base
+end

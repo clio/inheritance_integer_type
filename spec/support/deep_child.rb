@@ -1,0 +1,2 @@
+class DeepChild < LeftChild
+end

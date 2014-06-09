@@ -1,0 +1,3 @@
+class LeftChild < Base
+
+end
