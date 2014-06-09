@@ -4,6 +4,8 @@ require 'support/base'
 require 'support/left_child'
 require 'support/right_child'
 require 'support/deep_child'
+require 'support/other'
+require 'support/belongs_to'
 
 RSpec.configure do |config|
 
@@ -14,7 +16,7 @@ RSpec.configure do |config|
   # No need to return the run the down migration after the test
   # but useful while in development
   # config.after(:suite) do
-  # ActiveRecord::Migrator.down "#{File.dirname(__FILE__)}/support/migrations"
+  #   ActiveRecord::Migrator.down "#{File.dirname(__FILE__)}/support/migrations"
   # end
 
 
