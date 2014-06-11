@@ -12,9 +12,9 @@ class PriorityClient < Client; end
 
 With a migration that looks something like:
 ```ruby
-class CreatePictures < ActiveRecord::Migration
+class CreateCompanies < ActiveRecord::Migration
   def change
-    create_table :pictures do |t|
+    create_table :companies do |t|
       t.string  :name
       t.string  :type
     end
@@ -62,7 +62,7 @@ Note: The mapping here can start from whatever integer you wish, but I would adv
 
 If you want to convert a polymorphic association that is already a string, you'll need to set up a migration. (Assuming SQL for the time being, but this should be pretty straightforward.)
 ```ruby
-class PictureToPolymorphicIntegerType < ActiveRecord::Migration
+class CompanyToIntegerType < ActiveRecord::Migration
   
   def up
     change_table :companies do |t|
