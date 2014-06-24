@@ -44,15 +44,15 @@ The gem is pretty straightforward to use.
 
 First, set the integer_inheritance value on each of the subclasses. 
 ```ruby
-class Firm < ActiveRecord::Base
+class Firm < Company
   self.integer_inheritance = 1
 end
  
-class Client < ActiveRecord::Base
+class Client < Company
   self.integer_inheritance = 2
 end
  
-class PriorityClient < ActiveRecord::Base
+class PriorityClient < Client
   self.integer_inheritance = 3
 end
 ```
