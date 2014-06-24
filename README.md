@@ -1,8 +1,8 @@
 # InheritanceIntegerType
 
-Easy for to set the 'type' fields in the DB to be an int (or tinyint) instead of a string. Much better for HD space and Ram, especially if they column in indexed
+This gem makes it easy to have int (or tinyint) 'type' fields in your Rails database, instead of strings. It makes much more efficient use of disk space and RAM, especially if the column is indexed.
 
-The example provided by the docs shows something like this
+The example provided by the Rails documentation shows something like this:
 ```ruby
 class Company < ActiveRecord::Base; end
 class Firm < Company; end
@@ -42,7 +42,7 @@ Or install it yourself as:
 
 The gem is pretty straightforward to use.
 
-First, set the integer_inheritance value on each of the subclasses. 
+First, set the `integer_inheritance` value on each of the subclasses. 
 ```ruby
 class Firm < ActiveRecord::Base
   self.integer_inheritance = 1
