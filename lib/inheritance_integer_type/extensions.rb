@@ -23,6 +23,14 @@ module InheritanceIntegerType
     included do
       class_eval {
         cattr_accessor :_inheritance_mapping
+
+        def self.merge_mapping!(mapping)
+          conflicts = _inheritance_mapping.keys & mapping.keys
+          raise ArgumentError.new("Duplicate mapping detected for keys: #{conflicts}") if conflicts.any?
+
+          _inheritance_mapping.merge!(mapping)
+        end
+
         self._inheritance_mapping = {}
         class << self
           alias_method_chain :sti_name, :integer_types
