@@ -16,26 +16,27 @@ module InheritanceIntegerType
         klass = sti_name_without_integer_types
         self._inheritance_mapping.key(klass) || klass
       end
-
-
     end
 
     included do
-      class_eval {
-        cattr_accessor :_inheritance_mapping
+      class << self
+        def _inheritance_mapping
+          @_inheritance_mapping ||= (superclass == ActiveRecord::Base ? {} : superclass._inheritance_mapping)
+        end
 
-        def self.merge_mapping!(mapping)
+        def _inheritance_mapping=(val)
+          @_inheritance_mapping = val
+        end
+
+        def merge_mapping!(mapping)
           conflicts = _inheritance_mapping.keys & mapping.keys
           raise ArgumentError.new("Duplicate mapping detected for keys: #{conflicts}") if conflicts.any?
 
           _inheritance_mapping.merge!(mapping)
         end
 
-        self._inheritance_mapping = {}
-        class << self
-          alias_method_chain :sti_name, :integer_types
-        end
-      }
+        alias_method_chain :sti_name, :integer_types
+      end
     end
 
   end
