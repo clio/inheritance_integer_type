@@ -21,7 +21,7 @@ module InheritanceIntegerType
     included do
       class << self
         def _inheritance_mapping
-          @_inheritance_mapping ||= (superclass == ActiveRecord::Base ? {} : superclass._inheritance_mapping)
+          @_inheritance_mapping ||= (superclass == ActiveRecord::Base ? {} : superclass._inheritance_mapping.dup)
         end
 
         def _inheritance_mapping=(val)
