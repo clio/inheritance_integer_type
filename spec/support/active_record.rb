@@ -5,7 +5,7 @@ config = {
   :adapter => "mysql2",
   :host => "localhost",
   :database => "inheritance_integer_type_test",
-  :username => "root",
-  :password => "iasEcerdyetvanyet"
+  :username => "iit",
+  :password => ""
 }
 ActiveRecord::Base.establish_connection(config)
