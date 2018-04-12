@@ -6,8 +6,6 @@ require 'support/right_child'
 require 'support/deep_child'
 require 'support/other'
 require 'support/belongs_to'
-require 'support/old_style'
-require 'support/inherit_old_style'
 
 RSpec.configure do |config|
 
