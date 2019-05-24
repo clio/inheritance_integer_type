@@ -1,4 +1,4 @@
-class CreateBelongToTable < ActiveRecord::Migration
+class CreateBelongToTable < ActiveRecord::Migration[5.2]
 
   def change
     create_table :belongs_tos do |t|

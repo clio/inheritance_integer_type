@@ -8,9 +8,8 @@ require 'support/other'
 require 'support/belongs_to'
 
 RSpec.configure do |config|
-
   config.before(:suite) do
-    ActiveRecord::Migrator.up "#{File.dirname(__FILE__)}/support/migrations"
+    ActiveRecord::MigrationContext.new("#{File.dirname(__FILE__)}/support/migrations").migrate
   end
 
   # No need to return the run the down migration after the test
@@ -18,7 +17,6 @@ RSpec.configure do |config|
   # config.after(:suite) do
   #   ActiveRecord::Migrator.down "#{File.dirname(__FILE__)}/support/migrations"
   # end
-
 
   config.around do |example|
     ActiveRecord::Base.transaction do
