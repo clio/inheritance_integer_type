@@ -48,7 +48,7 @@ describe InheritanceIntegerType do
     describe "Has many associations" do
       let(:other) { Other.create }
       before do
-        [base, left, deep].each{|a| a.update_attributes(other: other) }
+        [base, left, deep].each{|a| a.update_attribute(:other, other) }
       end
       subject { other }
       it "properly finds the classes through the association" do

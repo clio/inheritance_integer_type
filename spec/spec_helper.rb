@@ -9,7 +9,7 @@ require 'support/belongs_to'
 
 RSpec.configure do |config|
   config.before(:suite) do
-    ActiveRecord::MigrationContext.new("#{File.dirname(__FILE__)}/support/migrations").migrate
+    ActiveRecord::MigrationContext.new("#{File.dirname(__FILE__)}/support/migrations", ::ActiveRecord::SchemaMigration).migrate
   end
 
   # No need to return the run the down migration after the test
