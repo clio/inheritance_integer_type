@@ -3,10 +3,7 @@ name: CI
 
 on:
   workflow_dispatch:
-  push:
-    branches: [ "ci" ]
   pull_request:
-    branches: [ "ci" ]
 
 permissions:
   contents: read
