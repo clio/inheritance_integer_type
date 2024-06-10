@@ -1,0 +1,30 @@
+---
+name: CI
+
+on:
+  workflow_dispatch:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby-version:
+          - 2.7
+        active-record-version:
+          - 5.2.0
+    env:
+      ACTIVE_RECORD_VERSION: "${{ matrix.active-record-version }}"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "${{ matrix.ruby-version }}"
+          bundler-cache: true
+      - name: Run tests
+        run: bundle exec rspec --format documentation
