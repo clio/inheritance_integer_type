@@ -22,9 +22,11 @@ class CreateCompanies < ActiveRecord::Migration
 end
 ```
 
-The problem with this approach is that `type` is a string (and by default it is 255 characters). This is a little ridiculous. For comparison, if we had a state machine with X states, would we describe the states with strings `"State1", "State2", etc` or would we just enumerate the state column and make it an integer? This gem will allow us to use an integer for the `type` column. 
+The problem with this approach is that `type` is a string (and by default it is 255 characters). This is a little ridiculous. For comparison, if we had a state machine with X states, would we describe the states with strings `"State1", "State2", etc` or would we just enumerate the state column and make it an integer? This gem will allow us to use an integer for the `type` column.
 
 ## Installation
+
+_Current versions of this gem (>= v0.2.0) only support Ruby 3+ and ActiveRecord >= v6.1. For Ruby <= v2.7 or ActiveRecord <= 6.0, use v0.1.3._
 
 Add this line to your application's Gemfile:
 
@@ -42,28 +44,28 @@ Or install it yourself as:
 
 The gem is pretty straightforward to use.
 
-First, set the `integer_inheritance` value on each of the subclasses. 
+First, set the `integer_inheritance` value on each of the subclasses.
 ```ruby
 class Firm < Company
   self.integer_inheritance = 1
 end
- 
+
 class Client < Company
   self.integer_inheritance = 2
 end
- 
+
 class PriorityClient < Client
   self.integer_inheritance = 3
 end
 ```
 
 
-Note: The mapping here can start from whatever integer you wish, but I would advise not using 0. The reason being that if you had a new class, for instance `PriorityFirm`,  but forgot to include set the mapping, it would effectively get `to_i` called on it and stored in the database. `"Priority".to_i == 0`, so if your mapping included 0, this would create a weird bug. 
+Note: The mapping here can start from whatever integer you wish, but I would advise not using 0. The reason being that if you had a new class, for instance `PriorityFirm`,  but forgot to include set the mapping, it would effectively get `to_i` called on it and stored in the database. `"Priority".to_i == 0`, so if your mapping included 0, this would create a weird bug.
 
 If you want to convert a polymorphic association that is already a string, you'll need to set up a migration. (Assuming SQL for the time being, but this should be pretty straightforward.)
 ```ruby
 class CompanyToIntegerType < ActiveRecord::Migration
-  
+
   def up
     change_table :companies do |t|
       t.integer :new_type
