@@ -13,7 +13,7 @@ module InheritanceIntegerType
         else
           begin
             if store_full_sti_class
-              ActiveSupport::Dependencies.constantize(lookup)
+              lookup.constantize
             else
               compute_type(lookup)
             end

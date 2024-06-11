@@ -9,7 +9,7 @@ ar = case ar_version
 when "master"
   { github: "rails/rails" }
 when "default"
-  ">= 5.2"
+  ">= 6.0"
 else
   "~> #{ar_version}"
 end
