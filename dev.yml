@@ -2,7 +2,7 @@
 version: "2.0"
 
 setup:
-  ruby: 3.3.7
+  ruby: 3.3.8
   bundler: 2.4.21
 
 commands:
