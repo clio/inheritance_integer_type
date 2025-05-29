@@ -1,0 +1,16 @@
+version: 2
+registries:
+  rubygems-github:
+    type: rubygems-server
+    url: https://rubygems.pkg.github.com/clio
+    token: ${{ secrets.DEPENDABOT_GITHUB_TOKEN }}
+
+updates:
+  - package-ecosystem: "bundler"
+    directory: "/"
+    vendor: true
+    insecure-external-code-execution: allow
+    registries: "*"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 2
