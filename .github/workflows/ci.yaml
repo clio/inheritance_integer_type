@@ -44,4 +44,6 @@ jobs:
           ruby-version: "${{ matrix.ruby-version }}"
           bundler-cache: true
       - name: Run tests
-        run: bundle exec appraisal rspec --format documentation
+        run: |
+          bundle exec appraisal install
+          bundle exec appraisal rspec --format documentation
