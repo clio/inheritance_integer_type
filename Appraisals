@@ -10,5 +10,5 @@ end
 
 appraise "activerecord-7.1" do
   gem "activerecord", "~> 7.1.0"
-  gem "concurrent-ruby", "1.3.5"
+  gem "concurrent-ruby"
 end
