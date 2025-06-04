@@ -2,10 +2,12 @@
 version: "2.0"
 
 setup:
-  ruby: 3.1.4
-  bundler: 2.4.21
+  ruby: 3.3.8
+  bundler: 2.6.9
 
 commands:
   test:
     summary: Run the project's specs
-    command: bundle exec appraisal rspec spec/
+    command: |
+      bundle exec appraisal install
+      bundle exec appraisal rspec spec/
