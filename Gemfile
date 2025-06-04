@@ -15,3 +15,7 @@ else
 end
 
 gem "activerecord", ar
+
+group :development, :test do
+  gem "appraisal", "2.5.0"
+end

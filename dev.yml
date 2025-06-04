@@ -8,4 +8,4 @@ setup:
 commands:
   test:
     summary: Run the project's specs
-    command: bundle exec rspec spec/
+    command: bundle exec appraisal rspec spec/
