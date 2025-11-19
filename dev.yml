@@ -3,8 +3,7 @@ version: "2.0"
 
 setup:
   ruby: 3.3.8
-  bundler: 2.6.9
-
+  bundler: true
 commands:
   test:
     summary: Run the project's specs
