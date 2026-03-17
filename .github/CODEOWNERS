@@ -1,0 +1,4 @@
+# This file defines the default code owners for this repository.
+# For more info: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+* @backend-infrastructure
