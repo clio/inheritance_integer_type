@@ -1,0 +1,11 @@
+# This file defines the default code owners for this repository.
+# For more info: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+#
+# The team handle is commented out to avoid triggering review request
+# notifications. Overlord's auto-triage module parses inline comments
+# to determine ownership for CVE triage.
+#
+# To enable GitHub review request notifications, remove the '#':
+#   * @clio/bei
+
+* # @clio/bei
