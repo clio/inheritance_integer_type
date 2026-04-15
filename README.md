@@ -26,7 +26,7 @@ The problem with this approach is that `type` is a string (and by default it is 
 
 ## Installation
 
-_Current versions of this gem (>= v0.2.0) only support Ruby 3+ and ActiveRecord >= v6.1. For Ruby <= v2.7 or ActiveRecord <= 6.0, use v0.1.3._
+_Current versions of this gem (>= v0.2.3) only support Ruby 3+ and ActiveRecord >= 7.0. For ActiveRecord 6.1, use v0.2.2. For Ruby <= v2.7 or ActiveRecord <= 6.0, use v0.1.3._
 
 Add this line to your application's Gemfile:
 
