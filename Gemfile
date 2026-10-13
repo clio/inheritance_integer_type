@@ -15,6 +15,7 @@ else
 end
 
 gem "activerecord", ar
+gem "sqlite3", "~> 2.9", ">= 2.9.6"
 
 group :development, :test do
   gem "appraisal", "2.5.0"
